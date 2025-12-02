@@ -1,7 +1,4 @@
-Here is the **clean, copy-paste-ready README.md** — no citations, no extra formatting issues.
-Just **copy & paste directly into GitHub**:
 
----
 
 # 📊 Netflix Movies & TV Shows – Big Data Analysis
 
