@@ -1,44 +1,127 @@
-# 🎬 MovieLens Data Analysis using PySpark
-
-## 📘 Project Overview
-This project analyzes the **MovieLens dataset** using **PySpark** to uncover audience insights about movie ratings, genres, and tagging behavior.  
-The analysis includes data integration from multiple CSV files (`movies.csv`, `ratings.csv`, `tags.csv`) to perform large-scale aggregations and joins efficiently on a distributed framework.
+Here is the **clean, copy-paste-ready README.md** — no citations, no extra formatting issues.
+Just **copy & paste directly into GitHub**:
 
 ---
 
-## 🧩 Dataset Description
-- **movies.csv** — contains movie titles and genres.  
-- **ratings.csv** — includes user ratings for each movie (scale: 0.5–5.0).  
-- **tags.csv** — represents user-assigned descriptive tags for movies.
+# 📊 Netflix Movies & TV Shows – Big Data Analysis
+
+**Course:** DS8003 – Management of Big Data and Big Data Tools
+**Group:** 10
+**Members:**
+
+* Ishrat Jaben Bushra
+* Sahil Arora
+* Sam Ensafi
 
 ---
 
-## 🔍 Analysis Summary
+## 📌 Project Overview
 
-### 1️⃣ Top Rated Movies (Q6)
-Identified the **top 5 movies** with the highest average ratings, considering only titles that received **at least 100 ratings** to ensure reliability.
+This project analyzes the **Netflix Movies & TV Shows** dataset using a complete big-data pipeline built with:
 
-### 2️⃣ Most Tagged Movie (Q7)
-Found the **movie tagged by the most unique users**, revealing which title inspired the greatest level of audience tagging activity.
+* **HDFS** for distributed storage
+* **Apache Spark** for data cleaning, preprocessing, and analytics
+* **Hive** for SQL-based querying
+* **ElasticSearch & Kibana** for dashboard visualizations
 
-### 3️⃣ Highest Rated Genres (Q8)
-Calculated the **average rating for each genre** and listed the **top 3 genres** most favored by users across the entire dataset.
-
-### 4️⃣ Tags Linked to High Ratings (Q9)
-Examined the connection between **tags and highly rated movies (≥ 4.5)** to determine which tag is most commonly associated with high-quality films.
-
-### 5️⃣ Widest Rating Range (Q10)
-Measured the **difference between maximum and minimum ratings** per movie to find which film had the **widest range**, indicating the most divisive audience opinions.
+The analysis answers five questions related to catalog balance, genre trends, country representation, maturity ratings, and duration trends.
 
 ---
 
-## ⚙️ Technologies Used
-- **Apache Spark (PySpark)**
-- **Python 2.7**
-- **HDFS / Hadoop Environment**
-- **HDP Sandbox**
+## 📂 Dataset
+
+We used the Netflix Titles dataset (8,807 rows) with features such as title, type, director, cast, country, rating, and duration.
+
+Key points:
+
+* No duplicate show IDs
+* Missing values mainly in `director`, `country`, and `cast`
+* Duration cleaned: minutes for Movies, seasons for TV Shows
 
 ---
 
-## 📈 Output Format
-Each analysis outputs results to HDFS as CSV files for easy export and visualization:
+## 🛠️ Technologies Used
+
+### **HDFS**
+
+* Stores the raw dataset
+* Provides distributed storage for Spark, Hive, and downstream tools
+
+### **Apache Spark**
+
+Used for:
+
+* Data cleaning & normalization
+* Duration extraction & imputation
+* Genre explosion with equal-share weighting
+* Country explosion for multi-country entries
+* Yearly trend analysis (genres, country, duration)
+
+### **Hive**
+
+Used for:
+
+* Movie vs TV Show counts
+* Maturity rating distributions
+* SQL queries directly over HDFS
+* Quick analytical aggregation
+
+### **ElasticSearch & Kibana**
+
+Used for:
+
+* Indexing cleaned CSV outputs
+* Creating visual dashboards (bar, line, pie, trend charts)
+
+---
+
+## ❓ Analytical Questions & Insights
+
+### **Q1 — Movies vs TV Shows**
+
+* ~6100 Movies vs ~2700 TV Shows
+* Movies dominate by more than 2×
+* TV shows mostly have only 1 season
+* → Weak long-term retention opportunity
+
+### **Q2 — Genre Diversity Over Time**
+
+* Catalog shifted to fewer dominant genres
+* Dramas & International content increased
+* Documentaries & Stand-Up declined
+* → Genre diversity shrinking
+
+### **Q3 — Country Contribution**
+
+* Strong dominance by the United States (~3800 titles)
+* India and UK follow far behind
+* → Heavy dependence on U.S. content
+
+### **Q4 — Maturity Ratings**
+
+* TV-MA and TV-14 together = over 60% of catalog
+* Kids & family content <10%
+* → Netflix prioritizes adult audience
+
+### **Q5 — Duration Trends**
+
+* Movies getting longer (77 → 100+ minutes)
+* TV shows getting shorter (4.6 → ~2 seasons)
+* → Less long-term viewer attachment potential
+
+---
+
+## 📈 Overall Summary
+
+Across all questions, Netflix shows strong imbalance in catalog strategy:
+
+* More movies than TV shows
+* Concentration in a few popular genres
+* U.S. content dominates globally
+* Mostly adult-oriented catalog
+* Longer movies but shorter series
+
+These trends indicate focus on fast production and trend-based content rather than balanced long-term viewer engagement.
+
+---
+
