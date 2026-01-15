@@ -40,6 +40,7 @@ Key points:
 **Extract**
 * Ingested raw Netflix CSV dataset into HDFS
 * Accessed data using PySpark and Hive external tables
+  
 **Transform**
 * Performed data cleaning and normalization
 * Handled missing values and standardized formats
@@ -47,6 +48,7 @@ Key points:
 * Exploded multi-valued genres with equal-share weighting
 * Exploded multi-country entries for accurate contribution analysis
 * Created year-wise aggregated datasets for trend analysis
+  
 **Load**
 * Loaded transformed datasets into Hive for SQL-based analytics
 * Exported curated outputs to CSV
