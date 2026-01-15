@@ -14,11 +14,11 @@
 
 ## 📌 Project Overview
 
-This project analyzes the **Netflix Movies & TV Shows** dataset using a complete big-data pipeline built with:
+This project  implements a batch ETL (Extract, Transform, Load) pipeline to analyze the **Netflix Movies & TV Shows** dataset using a complete big-data pipeline built with:
 
-* **HDFS** for distributed storage
-* **Apache Spark** for data cleaning, preprocessing, and analytics
-* **Hive** for SQL-based querying
+* **HDFS** for distributed storage, Raw CSV data is extraction
+* **Apache Spark** for transforming through data cleaning, preprocessing, and analytics
+* **Hive** To Load and for SQL-based querying
 * **ElasticSearch & Kibana** for dashboard visualizations
 
 The analysis answers five questions related to catalog balance, genre trends, country representation, maturity ratings, and duration trends.
@@ -36,7 +36,24 @@ Key points:
 * Duration cleaned: minutes for Movies, seasons for TV Shows
 
 ---
-
+---
+## 🔄 ETL Workflow
+**Extract**
+* Ingested raw Netflix CSV dataset into HDFS
+* Accessed data using PySpark and Hive external tables
+**Transform**
+* Performed data cleaning and normalization
+* Handled missing values and standardized formats
+* Extracted and normalized duration values
+* Exploded multi-valued genres with equal-share weighting
+* Exploded multi-country entries for accurate contribution analysis
+* Created year-wise aggregated datasets for trend analysis
+**Load**
+* Loaded transformed datasets into Hive for SQL-based analytics
+* Exported curated outputs to CSV
+* Indexed cleaned datasets into ElasticSearch
+* Built interactive dashboards using Kibana
+---
 ## 🛠️ Technologies Used
 
 ### **HDFS**
