@@ -36,7 +36,6 @@ Key points:
 * Duration cleaned: minutes for Movies, seasons for TV Shows
 
 ---
----
 ## 🔄 ETL Workflow
 **Extract**
 * Ingested raw Netflix CSV dataset into HDFS
