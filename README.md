@@ -126,7 +126,8 @@ Used for:
 
 ---
 ## Preview
-![Dashboard Preview](dashboard_overview.png)
+![Dashboard Preview](powerbi-netflix-genre-dashboard/dashboard_overview.png)
+
 
 ## 📈 Overall Summary
 
