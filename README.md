@@ -125,6 +125,8 @@ Used for:
 * → Less long-term viewer attachment potential
 
 ---
+## Preview
+![Dashboard Preview](dashboard_overview.png)
 
 ## 📈 Overall Summary
 
